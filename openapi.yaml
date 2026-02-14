@@ -1,0 +1,73 @@
+openapi: 3.0.4
+info:
+  title: TLD Lookup
+  description: >-
+    TLD Lookup retrieves information about any top-level domain including its
+    type (generic, country-code, sponsored) and the sponsoring organization
+    responsible for managing it.
+  termsOfService: https://apiverve.com/terms/
+  contact:
+    name: APIVerve Support
+    email: hello@apiverve.com
+    url: https://apiverve.com/contact
+  version: 1.0.0
+externalDocs:
+  description: Learn more about APIVerve
+  url: https://docs.apiverve.com?utm_source=openapi
+servers:
+  - url: https://api.apiverve.com/
+paths:
+  /v1/tldlookup:
+    get:
+      summary: Look Up TLD Information
+      description: >-
+        Retrieves the type and sponsoring organization for a given top-level
+        domain.
+      operationId: tldlookup
+      parameters:
+        - name: tld
+          in: query
+          schema:
+            type: string
+          required: true
+          description: The top-level domain to look up (with or without leading dot)
+          example: com
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    description: status
+                  error:
+                    type: string
+                    description: error
+                  data:
+                    type: object
+                    description: data
+              example:
+                status: ok
+                error: null
+                data:
+                  tld: com
+                  found: true
+                  type: generic
+                  organization: VeriSign Global Registry Services
+        '401':
+          description: Your request was not authorized, or your API Key was invalid
+        '404':
+          description: Requested resource was not found
+        '500':
+          description: A server error has occurred, try again later
+components:
+  securitySchemes:
+    api_key:
+      type: apiKey
+      name: x-api-key
+      in: header
+security:
+  - api_key: []
