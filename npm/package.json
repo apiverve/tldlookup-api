@@ -1,6 +1,6 @@
 {
   "name": "@apiverve/tldlookup",
-  "version": "1.1.13",
+  "version": "1.1.14",
   "description": "TLD Lookup retrieves information about any top-level domain including its type (generic, country-code, sponsored) and the sponsoring organization responsible for managing it.",
   "main": "index.js",
   "types": "index.d.ts",
