@@ -219,8 +219,9 @@ from apiverve_tldlookup.apiClient import TldlookupAPIClient
 
 api = TldlookupAPIClient("[YOUR_API_KEY]")
 
+query = { "tld": "com" }
+
 try:
-    query = { "tld": "com" }
     result = api.execute(query)
     print(result)
 finally:
