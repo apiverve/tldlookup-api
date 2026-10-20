@@ -19,7 +19,7 @@ servers:
 paths:
   /v1/tldlookup:
     get:
-      summary: Look Up TLD Information
+      summary: TLD Lookup
       description: >-
         Retrieves the type and sponsoring organization for a given top-level
         domain.
